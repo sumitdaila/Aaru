@@ -6,102 +6,268 @@
     <title>Will You Marry Me?</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* All previous styles remain the same, just add these: */
-        
-        /* Audio controls styling */
-        .audio-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: white;
-            padding: 15px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        .audio-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #ff4d8d;
-            color: white;
-            border: none;
-            cursor: pointer;
+        body {
+            background: linear-gradient(135deg, #f9d1d1 0%, #f5a9bc 100%);
+            color: #5d3a5d;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: #8a2b8a;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Brush Script MT', cursive;
+        }
+        
+        .subtitle {
             font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #a64ca6;
+        }
+        
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff4d8d;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: float 8s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .message {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .couple-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 30px auto;
+            background: linear-gradient(45deg, #ffb8d9, #e6b3ff);
             display: flex;
-            align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            align-items: center;
+            overflow: hidden;
+            border: 8px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .audio-btn:hover {
-            background: #ff3366;
-            transform: scale(1.1);
+        .couple-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .volume-slider {
-            width: 100px;
-        }
-        
-        /* Photo upload styling */
-        .upload-btn {
-            background-color: #8a2b8a;
+        .placeholder-photo {
+            font-size: 5rem;
             color: white;
+        }
+        
+        .proposal-box {
+            background: linear-gradient(135deg, #ff9ec0, #d47aff);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px auto;
+            color: white;
+            box-shadow: 0 10px 25px rgba(212, 122, 255, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .proposal-question {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            font-family: 'Brush Script MT', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 20px 50px;
+            font-size: 1.8rem;
             border: none;
-            padding: 12px 25px;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1rem;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .upload-btn:hover {
-            background-color: #6a1b6a;
-            transform: translateY(-3px);
+        .yes-btn {
+            background-color: #ff4d8d;
+            color: white;
         }
         
-        .photo-instructions {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
-            font-style: italic;
+        .no-btn {
+            background-color: white;
+            color: #ff4d8d;
         }
         
-        .hidden {
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .yes-btn:hover {
+            background-color: #ff3366;
+        }
+        
+        .no-btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .response-message {
             display: none;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 20px;
+            color: #8a2b8a;
+            font-size: 2.5rem;
+            font-weight: bold;
+            animation: fadeIn 2s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .ring {
+            display: none;
+            font-size: 4rem;
+            margin: 20px auto;
+            color: gold;
+            animation: spin 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #a64ca6;
+            font-size: 1.1rem;
+        }
+        
+        .love-note {
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .proposal-question {
+                font-size: 2.5rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.5rem;
+            }
+            
+            .couple-photo {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .message-container, .proposal-box {
+                padding: 20px;
+            }
         }
     </style>
+    <audio id="backgroundMusic" loop>
+    <source src="YOUR-MUSIC-FILE.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    // Autoplay music when page loads (with user interaction)
+    document.addEventListener('click', function() {
+        const music = document.getElementById('backgroundMusic');
+        music.volume = 0.3; // Set volume to 30%
+        music.play().catch(e => console.log("Autoplay prevented:", e));
+    }, { once: true }); // Only runs on first click
+</script>
 </head>
 <body>
     <div class="hearts" id="hearts-container"></div>
-    
-    <!-- Audio Controls -->
-    <div class="audio-controls">
-        <button id="playBtn" class="audio-btn">
-            <i class="fas fa-play"></i>
-        </button>
-        <button id="pauseBtn" class="audio-btn">
-            <i class="fas fa-pause"></i>
-        </button>
-        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.1" value="0.3">
-        <span id="songTitle">Our Song</span>
-    </div>
-    
-    <!-- Audio Element (hidden) -->
-    <audio id="backgroundMusic" loop>
-        <!-- Replace with your audio file -->
-        <source src="romantic-music.mp3" type="audio/mpeg">
-        <source src="romantic-music.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
-    </audio>
     
     <div class="container">
         <header>
@@ -117,15 +283,6 @@
                 </div>
             </div>
             
-            <!-- Photo Upload Button -->
-            <div style="text-align: center;">
-                <button class="upload-btn" id="uploadPhotoBtn">
-                    <i class="fas fa-camera"></i> Upload Our Photo
-                </button>
-                <input type="file" id="photoUpload" accept="image/*" class="hidden">
-                <p class="photo-instructions">Click to upload a photo of us, or click the heart above to use a sample</p>
-            </div>
-            
             <div class="message">
                 <p>My love, from the moment we met, you've filled my life with joy, laughter, and a love I never knew existed.</p>
                 <p>Every day with you is a blessing, and every moment we share is a treasure I hold close to my heart.</p>
@@ -134,7 +291,6 @@
             </div>
         </div>
         
-        <!-- Rest of the HTML remains the same -->
         <div class="proposal-box">
             <div class="proposal-question">Will you make me the happiest person and marry me?</div>
             
@@ -158,147 +314,6 @@
     </div>
 
     <script>
-        // ==================== AUDIO CONTROLS ====================
-        const backgroundMusic = document.getElementById('backgroundMusic');
-        const playBtn = document.getElementById('playBtn');
-        const pauseBtn = document.getElementById('pauseBtn');
-        const volumeSlider = document.getElementById('volumeSlider');
-        const songTitle = document.getElementById('songTitle');
-        
-        // Set default volume
-        backgroundMusic.volume = 0.3;
-        
-        // Play button
-        playBtn.addEventListener('click', function() {
-            backgroundMusic.play();
-            playBtn.style.display = 'none';
-            pauseBtn.style.display = 'flex';
-        });
-        
-        // Pause button
-        pauseBtn.addEventListener('click', function() {
-            backgroundMusic.pause();
-            playBtn.style.display = 'flex';
-            pauseBtn.style.display = 'none';
-        });
-        
-        // Initially hide pause button
-        pauseBtn.style.display = 'none';
-        
-        // Volume control
-        volumeSlider.addEventListener('input', function() {
-            backgroundMusic.volume = this.value;
-        });
-        
-        // Auto-play when user interacts with page (browser requirement)
-        document.addEventListener('click', function initAudio() {
-            // Try to play audio
-            backgroundMusic.play().then(() => {
-                console.log("Music started successfully");
-                playBtn.style.display = 'none';
-                pauseBtn.style.display = 'flex';
-            }).catch(error => {
-                console.log("Autoplay prevented. User must click play button.");
-                playBtn.style.display = 'flex';
-                pauseBtn.style.display = 'none';
-            });
-            
-            // Remove this listener after first click
-            document.removeEventListener('click', initAudio);
-        }, { once: true });
-        
-        // ==================== PHOTO UPLOAD ====================
-        const uploadPhotoBtn = document.getElementById('uploadPhotoBtn');
-        const photoUpload = document.getElementById('photoUpload');
-        const photoContainer = document.getElementById('photo-container');
-        const placeholder = document.querySelector('.placeholder-photo');
-        
-        // Open file dialog when upload button is clicked
-        uploadPhotoBtn.addEventListener('click', function() {
-            photoUpload.click();
-        });
-        
-        // Handle photo selection
-        photoUpload.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                
-                reader.onload = function(e) {
-                    // Remove placeholder
-                    placeholder.style.display = 'none';
-                    
-                    // Remove existing image if any
-                    const existingImg = photoContainer.querySelector('img');
-                    if (existingImg) {
-                        existingImg.remove();
-                    }
-                    
-                    // Create new image
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.alt = 'Our Special Photo';
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                    img.style.borderRadius = '50%';
-                    
-                    photoContainer.appendChild(img);
-                    
-                    // Show success message
-                    uploadPhotoBtn.innerHTML = '<i class="fas fa-check"></i> Photo Updated!';
-                    uploadPhotoBtn.style.backgroundColor = '#4CAF50';
-                    
-                    setTimeout(() => {
-                        uploadPhotoBtn.innerHTML = '<i class="fas fa-camera"></i> Change Photo';
-                        uploadPhotoBtn.style.backgroundColor = '#8a2b8a';
-                    }, 2000);
-                };
-                
-                reader.readAsDataURL(file);
-            }
-        });
-        
-        // Click photo to use sample (original functionality)
-        photoContainer.addEventListener('click', function() {
-            // If there's no uploaded photo, use sample
-            if (!photoContainer.querySelector('img')) {
-                placeholder.style.display = 'none';
-                
-                const img = document.createElement('img');
-                // Replace with your preferred sample photo URL
-                img.src = 'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80';
-                img.alt = 'Couple in love';
-                img.style.width = '100%';
-                img.style.height = '100%';
-                img.style.objectFit = 'cover';
-                img.style.borderRadius = '50%';
-                img.style.filter = 'sepia(0.3) brightness(1.1)';
-                
-                photoContainer.appendChild(img);
-            }
-        });
-        
-        // ==================== SETUP INSTRUCTIONS ====================
-        
-        // Instructions for setting up your own audio
-        console.log(`
-        ==============================================
-        HOW TO ADD YOUR OWN MUSIC:
-        1. Place your music file in the same folder as this HTML file
-        2. Rename your file to: romantic-music.mp3
-        3. If you have a different format, change line 87:
-           <source src="YOUR-FILENAME.mp3" type="audio/mpeg">
-        
-        Recommended free romantic music sources:
-        - YouTube Audio Library (free, no copyright)
-        - BenSound (royalty-free music)
-        - Incompetech (Kevin MacLeod's free music)
-        ==============================================
-        `);
-        
-        // ==================== ORIGINAL CODE (with updates) ====================
-        
         // Create floating hearts
         const heartsContainer = document.getElementById('hearts-container');
         const heartIcons = ['❤️', '💖', '💕', '💗', '💓', '💞'];
@@ -333,12 +348,12 @@
             // Create explosion of hearts
             createHeartExplosion();
             
-            // Play romantic sound
-            playCelebrationSound();
+            // Play romantic sound (optional)
+            playRomanticSound();
         });
         
         noBtn.addEventListener('click', function() {
-            // Move the "No" button randomly
+            // Move the "No" button randomly when hovered or clicked
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
             
@@ -377,7 +392,7 @@
                     responseMessage.style.display = 'block';
                     ring.style.display = 'block';
                     createHeartExplosion();
-                    playCelebrationSound();
+                    playRomanticSound();
                 }, {once: true});
             }
         });
@@ -407,18 +422,42 @@
             }
         }
         
-        // Play celebration sound
-        function playCelebrationSound() {
-            // You can add a special celebration sound here
-            console.log("Celebration! 🎉");
-            
-            // Example of adding a celebration sound effect:
-            // const celebrationSound = new Audio('celebration.mp3');
-            // celebrationSound.volume = 0.5;
-            // celebrationSound.play();
+        // Play romantic sound (optional)
+        function playRomanticSound() {
+            // In a real implementation, you would link to an actual sound file
+            console.log("Romantic music playing! 🎵");
+            // Example: new Audio('romantic-music.mp3').play();
         }
         
-        // Add romantic quotes
+        // Allow user to upload a photo
+        const photoContainer = document.getElementById('photo-container');
+        
+        photoContainer.addEventListener('click', function() {
+            // In a real implementation, you would create a file input
+            // For this demo, we'll just toggle between placeholder and a sample photo
+            const placeholder = document.querySelector('.placeholder-photo');
+            
+            if (placeholder.style.display !== 'none') {
+                placeholder.style.display = 'none';
+                
+                // Create an image element
+                const img = document.createElement('img');
+                img.src = 'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80';
+                img.alt = 'Couple in love';
+                photoContainer.appendChild(img);
+                
+                // Add romantic filter
+                img.style.filter = 'sepia(0.3) brightness(1.1)';
+            } else {
+                const img = photoContainer.querySelector('img');
+                if (img) {
+                    img.remove();
+                    placeholder.style.display = 'flex';
+                }
+            }
+        });
+        
+        // Add a romantic quote every 10 seconds
         const messageEl = document.querySelector('.message');
         const romanticQuotes = [
             "I love you not only for what you are, but for what I am when I am with you.",
