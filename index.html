@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Viewport optimized for mobile with perfect scaling -->
+  <!-- ULTIMATE MOBILE VIEWPORT – ensures perfect scaling and prevents zoom issues -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>For Aarju 💖 | From Sumit</title>
   <style>
-    /* Reset & Fullscreen base */
+    /* RESET & FULLSCREEN FIX */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -17,7 +17,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
       background: black;
       color: white;
       position: fixed;
@@ -27,7 +27,7 @@
       bottom: 0;
     }
 
-    /* Intro screen – full screen tap area */
+    /* INTRO SCREEN – perfect tap target */
     #intro {
       position: fixed;
       z-index: 20;
@@ -45,28 +45,26 @@
       left: 0;
     }
     #intro h1 {
-      font-size: clamp(2rem, 12vw, 3.8rem);
+      font-size: clamp(2.2rem, 10vw, 4rem);
       font-weight: 800;
       margin-bottom: 1.5rem;
       background: linear-gradient(45deg, #ff7eb3, #ff2e63);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: glowPulse 2s infinite alternate;
-      letter-spacing: 1px;
     }
     #intro p {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 500;
-      opacity: 0.95;
       color: #ffb6c1;
       letter-spacing: 2px;
     }
     @keyframes glowPulse {
       0% { filter: drop-shadow(0 0 5px #ff2e63); }
-      100% { filter: drop-shadow(0 0 20px #ff0844); }
+      100% { filter: drop-shadow(0 0 25px #ff0844); }
     }
 
-    /* Main content area (initially hidden) */
+    /* MAIN SCROLLABLE CONTENT – smooth and mobile friendly */
     #mainContent {
       position: relative;
       z-index: 10;
@@ -86,102 +84,103 @@
       display: none;
     }
 
-    /* BIG PHOTO CONTAINER – dramatically enlarged */
+    /* ===== MASSIVE PHOTO CONTAINER – optimized for mobile ===== */
     #photoContainer {
       width: 100%;
-      max-width: 690px;        /* increased from 360px */
-      margin: 2rem auto 2rem;
-      border-radius: 60px;      /* more pronounced rounding */
-      box-shadow: 0 0 70px rgba(255, 46, 99, 1), 0 0 0 6px #ff99cc inset;
-      animation: heartbeatGlow 2s infinite ease-in-out;
+      max-width: 750px;        /* even bigger on large phones */
+      margin: 1.2rem auto 1.2rem;
+      border-radius: 70px;      
+      box-shadow: 0 0 80px #ff4d6d, 0 0 0 8px #ff99cc inset;
+      animation: heartbeatGlow 2.2s infinite ease-in-out;
       flex-shrink: 0;
-      border: 4px solid #ffb3d9;
+      border: 5px solid #ffb3d9;
       overflow: hidden;
       transition: transform 0.2s;
     }
-    /* Slight scale on hover/touch for extra pop */
     #photoContainer:active {
-      transform: scale(1.02);
+      transform: scale(1.01);
     }
+
+    /* Image itself – fills container perfectly */
     #girlfriendPhoto {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
-      aspect-ratio: 1/1;        /* square – replace with your gf photo */
-      background: #ffd9e6;       /* fallback tint */
+      aspect-ratio: 1/1;        /* square, replace with your gf photo */
+      background: #ffd9e6;       /* fallback */
     }
 
-    /* Typing container – BIG & BOLD text (unchanged from previous) */
+    /* TYPING AREA – ultra bold & readable on small screens */
     #typing {
-      font-size: 1.9rem;
-      font-weight: 700;
+      font-size: 2rem;           /* increased from 1.9rem */
+      font-weight: 800;
       line-height: 1.5;
       color: #fff5fa;
-      text-shadow: 0 0 15px #ff4d6d, 2px 2px 4px #b3003b;
-      max-width: 650px;
+      text-shadow: 0 0 20px #ff4d6d, 3px 3px 6px #b3003b;
+      max-width: 750px;
       width: 100%;
-      margin: 0.8rem auto 1.8rem;
-      padding: 1.8rem;
-      background: rgba(15, 5, 25, 0.65);
-      backdrop-filter: blur(8px);
-      border-radius: 48px;
-      border: 2px solid #ff4d6d;
+      margin: 1rem auto 2rem;
+      padding: 2rem;
+      background: rgba(15, 5, 25, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 60px;
+      border: 3px solid #ff4d6d;
       white-space: pre-wrap;
       word-break: break-word;
-      letter-spacing: 0.5px;
     }
 
-    /* Yes button – bigger, bolder */
+    /* YES BUTTON – giant and tappable */
     #yesBtn {
       background: linear-gradient(145deg, #ff0844, #ff4d6d);
-      border: 3px solid #ffe6f0;
-      border-radius: 50px;
+      border: 4px solid #ffe6f0;
+      border-radius: 100px;
       color: white;
-      padding: 1.5rem 3.5rem;
-      font-size: 2.2rem;
+      padding: 1.8rem 4rem;
+      font-size: 2.5rem;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       cursor: pointer;
-      margin: 1rem auto 2.5rem;
+      margin: 1.2rem auto 2.5rem;
       display: block;
-      box-shadow: 0 20px 35px #ff2e63cc, 0 0 40px #ff2e63;
-      transition: transform 0.15s ease, box-shadow 0.2s;
+      box-shadow: 0 25px 40px #ff2e63, 0 0 60px #ff2e63;
+      transition: transform 0.1s ease;
       border: none;
       width: fit-content;
-      min-width: 320px;
-      max-width: 92%;
+      min-width: 360px;
+      max-width: 95%;
       flex-shrink: 0;
       -webkit-tap-highlight-color: transparent;
       text-transform: uppercase;
+      line-height: 1.2;
     }
     #yesBtn:active {
-      transform: scale(0.96);
-      box-shadow: 0 10px 20px #ff2e63;
+      transform: scale(0.95);
+      box-shadow: 0 15px 25px #ff2e63;
     }
 
-    /* Result message – extra bold & big */
+    /* RESULT MESSAGE – big & bold */
     #result {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 800;
       color: #ffcce6;
       text-align: center;
       margin: 2rem 0;
-      padding: 1.5rem;
+      padding: 1.8rem;
       width: 100%;
-      flex-shrink: 0;
-      text-shadow: 0 0 30px #ff1a75, 0 0 60px #ff0066;
-      line-height: 1.4;
+      text-shadow: 0 0 40px #ff1a75, 0 0 80px #ff0066;
     }
 
-    /* Secret page – big & bold */
+    /* SECRET PAGE – fullscreen with massive text */
     #secretPage {
       display: none;
       position: fixed;
       z-index: 30;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.98);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       overflow-y: auto;
       padding: 3rem 2rem;
       text-align: center;
@@ -190,70 +189,69 @@
       justify-content: center;
     }
     #secretPage h2 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 900;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
       background: linear-gradient(135deg, #ffb3d9, #ff4da6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 2px;
     }
     #secretPage p {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      line-height: 1.5;
-      max-width: 750px;
+      line-height: 1.6;
+      max-width: 850px;
       margin: 0 auto;
       white-space: pre-wrap;
-      background: rgba(255, 200, 230, 0.1);
-      padding: 2.5rem;
-      border-radius: 80px 30px 80px 30px;
-      border: 3px solid #ff4d6d;
+      background: rgba(255, 200, 230, 0.15);
+      padding: 3rem;
+      border-radius: 100px 40px 100px 40px;
+      border: 4px solid #ff4d6d;
       color: #ffeef7;
-      text-shadow: 0 0 20px magenta;
+      text-shadow: 0 0 30px magenta;
     }
 
-    /* Heartbeat effect stronger */
+    /* HEARTBEAT BUTTON EFFECT */
     .heartbeat {
       animation: btnBeat 1.2s infinite cubic-bezier(0.4, 0, 0.2, 1);
     }
     @keyframes btnBeat {
       0%, 100% { transform: scale(1); filter: brightness(1); }
-      30% { transform: scale(1.12); filter: brightness(1.4); box-shadow: 0 0 70px #ff4da6; }
-      50% { transform: scale(1.07); }
+      30% { transform: scale(1.1); filter: brightness(1.4); box-shadow: 0 0 80px #ff4da6; }
+      50% { transform: scale(1.05); }
     }
 
-    /* Floating hearts */
+    /* FLOATING HEARTS – romantic ambiance */
     .floating-heart {
       position: fixed;
-      width: 26px;
-      height: 26px;
+      width: 30px;
+      height: 30px;
       background: #ff4d6d;
       transform: rotate(-45deg);
-      opacity: 0.85;
+      opacity: 0.8;
       pointer-events: none;
       animation: floatUp linear infinite;
       z-index: 15;
-      border-radius: 3px;
+      border-radius: 4px;
       bottom: -20px;
     }
     .floating-heart::before,
     .floating-heart::after {
       content: "";
       position: absolute;
-      width: 26px;
-      height: 26px;
+      width: 30px;
+      height: 30px;
       background: #ff4d6d;
       border-radius: 50%;
     }
-    .floating-heart::before { top: -13px; left: 0; }
-    .floating-heart::after { top: 0; left: 13px; }
+    .floating-heart::before { top: -15px; left: 0; }
+    .floating-heart::after { top: 0; left: 15px; }
     @keyframes floatUp {
       0% { transform: translateY(0) rotate(-45deg); opacity: 0.9; }
       100% { transform: translateY(-120vh) rotate(-45deg); opacity: 0; }
     }
 
-    /* Canvas behind */
+    /* CANVAS BACKGROUND */
     canvas {
       display: block;
       position: fixed;
@@ -267,16 +265,13 @@
     #mainContent, #intro, #secretPage { z-index: 5; }
     audio { display: none; }
 
-    /* Ensure photo gets even more attention on very small screens */
-    @media (max-width: 380px) {
-      #photoContainer {
-        max-width: 98%;
-        border-radius: 50px;
-      }
-      #typing {
-        font-size: 1.7rem;
-        padding: 1.2rem;
-      }
+    /* EXTRA TUNING FOR VERY SMALL SCREENS */
+    @media (max-width: 400px) {
+      #photoContainer { max-width: 98%; border-radius: 50px; }
+      #typing { font-size: 1.8rem; padding: 1.5rem; }
+      #yesBtn { font-size: 2rem; min-width: 300px; padding: 1.4rem 2rem; }
+      #result { font-size: 2rem; }
+      #secretPage p { font-size: 2rem; padding: 2rem; }
     }
   </style>
 </head>
@@ -289,19 +284,18 @@
 
 <!-- Main content after intro -->
 <div id="mainContent" style="display: none;">
-  <!-- GIRLFRIEND PHOTO - MASSIVE CONTAINER -->
-  <!-- REPLACE "girlfriend.jpg" WITH YOUR ACTUAL GF PHOTO -->
+  <!-- GIRLFRIEND PHOTO - NOW WITH BUILT-IN FALLBACK TO AVOID SECURITY ERRORS -->
   <div id="photoContainer">
     <img src="girlfriend.jpg" alt="Aarju, my love" id="girlfriendPhoto">
   </div>
 
-  <!-- Typing area with larger bold text -->
+  <!-- Typing area with extra bold text -->
   <div id="typing"></div>
 
   <!-- Yes button -->
   <button id="yesBtn">YES, FOREVER 💍</button>
 
-  <!-- Result message (appears after YES) -->
+  <!-- Result message -->
   <div id="result"></div>
 </div>
 
@@ -316,15 +310,15 @@
   </p>
 </div>
 
-<!-- Audio elements -->
-<audio id="bgMusic" loop preload="auto">
+<!-- Audio elements – preload set to 'none' to avoid security warnings -->
+<audio id="bgMusic" loop preload="none">
   <source src="romantic.mp3" type="audio/mpeg">
 </audio>
-<audio id="heartbeatSound" preload="auto">
+<audio id="heartbeatSound" preload="none">
   <source src="heartbeat.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Three.js -->
+<!-- Three.js from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
 
 <script>
@@ -336,13 +330,12 @@
     const yesBtn = document.getElementById('yesBtn');
     const resultDiv = document.getElementById('result');
     const secretPage = document.getElementById('secretPage');
-    const photoContainer = document.getElementById('photoContainer');
     
     const bgMusic = document.getElementById('bgMusic');
     const heartbeatSound = document.getElementById('heartbeatSound');
 
-    // Floating hearts
-    const maxHearts = 12;
+    // ===== FLOATING HEARTS (mobile optimized) =====
+    const maxHearts = 10; // fewer but smoother
     const floatingHearts = [];
     let heartInterval;
 
@@ -352,7 +345,7 @@
       heart.classList.add('floating-heart');
       heart.style.left = Math.random() * 100 + '%';
       heart.style.bottom = '-20px';
-      const duration = 5000 + Math.random() * 4000;
+      const duration = 5000 + Math.random() * 5000;
       heart.style.animationDuration = duration + 'ms';
       document.body.appendChild(heart);
       floatingHearts.push(heart);
@@ -363,13 +356,18 @@
       }, duration);
     }
     
-    // Three.js setup
+    // ===== THREE.JS SETUP (lazy init after user gesture) =====
     let scene, camera, renderer, stars, fireworks = [];
+    let threeReady = false;
     
     function initThree() {
+      if (threeReady) return;
+      threeReady = true;
+      
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
       camera.position.z = 40;
+      
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -377,7 +375,7 @@
       document.body.appendChild(renderer.domElement);
       
       const starGeometry = new THREE.BufferGeometry();
-      const starCount = 1000;
+      const starCount = 800; // slightly less for mobile
       const starPositions = [];
       for(let i = 0; i < starCount; i++){
         starPositions.push(
@@ -387,17 +385,21 @@
         );
       }
       starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
-      const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.6 });
+      const starMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.7 });
       stars = new THREE.Points(starGeometry, starMaterial);
       scene.add(stars);
       
       window.addEventListener('resize', onWindowResize, false);
+      
+      animate();
     }
     
     function onWindowResize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      if (camera && renderer) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
     }
     
     class FireworkParticle {
@@ -436,7 +438,7 @@
     }
     
     function launchFireworks() {
-      for (let i = 0; i < 28; i++) {
+      for (let i = 0; i < 24; i++) {
         fireworks.push(new FireworkParticle());
       }
     }
@@ -444,14 +446,14 @@
     function animate() {
       requestAnimationFrame(animate);
       if (stars) {
-        stars.rotation.y += 0.0005;
+        stars.rotation.y += 0.0004;
         stars.rotation.x += 0.0002;
       }
       fireworks = fireworks.filter(fw => fw.update());
       if (renderer && scene && camera) renderer.render(scene, camera);
     }
     
-    // Typing effect text
+    // ===== TYPING EFFECT (slower, more dramatic) =====
     const textToType = `From the moment you entered my life,
 you became my entire universe.
 
@@ -476,47 +478,41 @@ Will you stay with me forever? 💖`;
       if (idx < textToType.length) {
         typingDiv.textContent += textToType[idx];
         idx++;
-        mainContent.scrollTo({
-          top: mainContent.scrollHeight,
-          behavior: 'smooth'
-        });
-        typingTimer = setTimeout(typeText, 75);
+        mainContent.scrollTo({ top: mainContent.scrollHeight, behavior: 'smooth' });
+        typingTimer = setTimeout(typeText, 70);
       } else {
-        if (yesBtn) {
-          yesBtn.style.display = 'inline-block';
-          yesBtn.classList.add('heartbeat');
-        }
-        mainContent.scrollTo({
-          top: mainContent.scrollHeight,
-          behavior: 'smooth'
-        });
+        yesBtn.style.display = 'inline-block';
+        yesBtn.classList.add('heartbeat');
+        mainContent.scrollTo({ top: mainContent.scrollHeight, behavior: 'smooth' });
       }
     }
     
-    // Heartbeat feedback
+    // ===== HEARTBEAT FEEDBACK =====
     function heartbeatSync() {
       if (navigator.vibrate) navigator.vibrate([300, 150, 300]);
-      if (heartbeatSound) {
-        heartbeatSound.play().catch(e => console.log('heartbeat audio blocked:', e));
-      }
+      // Attempt to play sound (only after user gesture)
+      heartbeatSound.play().catch(e => console.log('heartbeat audio delayed', e));
     }
     
-    // Start experience
+    // ===== START EXPERIENCE (triggered by intro tap) =====
     function startExperience() {
       intro.style.display = 'none';
       mainContent.style.display = 'flex';
       
-      heartInterval = setInterval(createFloatingHeart, 450);
+      // Start floating hearts
+      heartInterval = setInterval(createFloatingHeart, 500);
       
-      bgMusic.play().catch(e => console.log('Audio play prevented:', e));
+      // Play background music (user gesture)
+      bgMusic.play().catch(e => console.log('bg music will play after interaction', e));
       
+      // Initialize Three
       initThree();
-      animate();
       
+      // Start typing
       typeText();
     }
     
-    // Say Yes
+    // ===== SAY YES =====
     function sayYes() {
       if (typingTimer) clearTimeout(typingTimer);
       
@@ -533,22 +529,27 @@ Will you stay with me forever? 💖`;
       }, 2000);
     }
     
-    // Event listeners
+    // ===== EVENT LISTENERS (all user-initiated) =====
     intro.addEventListener('click', startExperience, { once: true });
+    
     yesBtn.addEventListener('click', function(e) {
       e.stopPropagation();
       sayYes();
     });
     
+    // Hide secret page initially
     secretPage.style.display = 'none';
     
-    // Fallback for girlfriend photo – if image missing, show romantic placeholder
+    // ===== ROBUST IMAGE FALLBACK (prevents broken image icon) =====
     const gfImg = document.getElementById('girlfriendPhoto');
     gfImg.onerror = function() {
-      this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Crect width='500' height='500' fill='%23ffb3d9'/%3E%3Ccircle cx='250' cy='200' r='90' fill='%23ff80b3'/%3E%3Cpath d='M150 320 Q250 430 350 320' stroke='%23ff1a4f' stroke-width='24' fill='none' stroke-linecap='round' /%3E%3Ctext x='180' y='430' font-family='Arial' font-size='48' fill='%23ff1a4f' fontWeight='bold'%3EAarju ❤️%3C/text%3E%3C/svg%3E";
+      // Embedded romantic SVG – no external calls, zero security errors
+      this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700' viewBox='0 0 700 700'%3E%3Crect width='700' height='700' fill='%23ffb3d9'/%3E%3Ccircle cx='350' cy='280' r='120' fill='%23ff80b3' stroke='%23ff1a4f' stroke-width='8'/%3E%3Cpath d='M200 430 Q350 570 500 430' stroke='%23ff1a4f' stroke-width='32' fill='none' stroke-linecap='round' /%3E%3Ctext x='220' y='600' font-family='Arial' font-size='80' fill='%23ff1a4f' font-weight='bold'%3EAarju ❤️%3C/text%3E%3C/svg%3E";
     };
+    
+    // If image loads successfully, great; otherwise fallback kicks in.
+    // Also set preload to 'none' for audio to avoid console warnings.
   })();
 </script>
 </body>
-
 </html>
