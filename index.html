@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- ULTIMATE MOBILE VIEWPORT – ensures perfect scaling and prevents zoom issues -->
+  <!-- ULTIMATE MOBILE VIEWPORT – perfect scaling, no zoom issues -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>For Aarju 💖 | From Sumit</title>
   <style>
@@ -64,31 +64,31 @@
       100% { filter: drop-shadow(0 0 25px #ff0844); }
     }
 
-    /* MAIN SCROLLABLE CONTENT – smooth and mobile friendly */
+    /* MAIN SCROLLABLE CONTENT – smooth scrolling, always scrollable up and down */
     #mainContent {
       position: relative;
       z-index: 10;
       width: 100vw;
       height: 100vh;
-      overflow-y: auto;
+      overflow-y: auto;         /* Enables vertical scrolling */
       overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch; /* Smooth inertial scrolling on iOS */
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 1rem 1rem 2rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      padding: 1rem 1rem 3rem;  /* Extra bottom padding for comfortable scrolling */
+      scrollbar-width: none;     /* Hide scrollbar Firefox */
+      -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
     }
     #mainContent::-webkit-scrollbar {
-      display: none;
+      display: none;             /* Hide scrollbar Chrome/Safari */
     }
 
-    /* ===== FULLY RESPONSIVE PHOTO CONTAINER – NO FIXED MAX-WIDTH ===== */
+    /* ===== FULLY RESPONSIVE PHOTO CONTAINER – stays at top, scroll up to see ===== */
     #photoContainer {
       width: 90%;
-      max-width: none;          /* removed fixed max-width */
-      margin: 1rem auto;
+      max-width: none;
+      margin: 1rem auto 0.5rem;  /* Reduced bottom margin so text starts sooner but image remains */
       border-radius: 40px;      
       box-shadow: 0 0 50px #ff4d6d, 0 0 0 6px #ff99cc inset;
       animation: heartbeatGlow 2.2s infinite ease-in-out;
@@ -111,7 +111,7 @@
       background: #ffd9e6;       /* fallback */
     }
 
-    /* TYPING AREA – fully responsive */
+    /* TYPING AREA – fully responsive, scroll past it and come back up */
     #typing {
       font-size: clamp(1.4rem, 5vw, 2.2rem);
       font-weight: 700;
@@ -142,7 +142,7 @@
       font-weight: 800;
       letter-spacing: 2px;
       cursor: pointer;
-      margin: 1rem auto 2rem;
+      margin: 0.5rem auto 2rem;
       display: block;
       box-shadow: 0 20px 30px #ff2e63, 0 0 50px #ff2e63;
       transition: transform 0.1s ease;
@@ -172,7 +172,7 @@
       text-shadow: 0 0 30px #ff1a75, 0 0 60px #ff0066;
     }
 
-    /* SECRET PAGE – fully responsive with no fixed sizes */
+    /* SECRET PAGE – fullscreen, also scrollable if needed */
     #secretPage {
       display: none;
       position: fixed;
@@ -181,7 +181,8 @@
       background: rgba(0,0,0,0.98);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      overflow-y: auto;
+      overflow-y: auto;          /* Allow scrolling inside secret page too */
+      -webkit-overflow-scrolling: touch;
       padding: 2rem;
       text-align: center;
       flex-direction: column;
@@ -266,7 +267,7 @@
     #mainContent, #intro, #secretPage { z-index: 5; }
     audio { display: none; }
 
-    /* Minimal tuning for very small screens – but no fixed sizes */
+    /* Minimal tuning for very small screens */
     @media (max-width: 400px) {
       #photoContainer { width: 95%; border-radius: 30px; }
       #typing { padding: 1.2rem; }
@@ -281,14 +282,14 @@
   <p>Tap to begin ❤️</p>
 </div>
 
-<!-- Main content after intro -->
+<!-- Main content after intro – now fully scrollable up and down -->
 <div id="mainContent" style="display: none;">
-  <!-- GIRLFRIEND PHOTO - FULLY RESPONSIVE CONTAINER -->
+  <!-- GIRLFRIEND PHOTO - stays at top, you can always scroll up to see it -->
   <div id="photoContainer">
     <img src="girlfriend.jpg" alt="Aarju, my love" id="girlfriendPhoto">
   </div>
 
-  <!-- Typing area with fully responsive text -->
+  <!-- Typing area with extra bold text -->
   <div id="typing"></div>
 
   <!-- Yes button -->
@@ -333,7 +334,7 @@
     const bgMusic = document.getElementById('bgMusic');
     const heartbeatSound = document.getElementById('heartbeatSound');
 
-    // ===== FLOATING HEARTS (mobile optimized) =====
+    // ===== FLOATING HEARTS =====
     const maxHearts = 10;
     const floatingHearts = [];
     let heartInterval;
@@ -477,6 +478,7 @@ Will you stay with me forever? 💖`;
       if (idx < textToType.length) {
         typingDiv.textContent += textToType[idx];
         idx++;
+        // Auto-scroll to bottom as text appears, but user can always scroll up freely.
         mainContent.scrollTo({ top: mainContent.scrollHeight, behavior: 'smooth' });
         typingTimer = setTimeout(typeText, 70);
       } else {
